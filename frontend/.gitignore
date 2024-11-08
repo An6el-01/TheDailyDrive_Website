@@ -1,0 +1,27 @@
+# Node modules for project dependencies
+node_modules/
+
+# Yarn Plug'n'Play files (if using Yarn)
+.pnp/
+.pnp.js
+
+# Coverage files from testing
+coverage/
+
+# Production build directory
+build/
+
+# Miscellaneous system files
+.DS_Store
+
+# Environment files for various environments
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs from npm and Yarn
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

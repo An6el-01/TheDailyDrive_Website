@@ -1,0 +1,40 @@
+# Ignore SQLite database files
+*.sqlite*
+
+# PHPUnit cache files
+/.phpunit.cache
+.phpunit.result.cache
+
+# Node modules (if any frontend assets are managed within the backend)
+node_modules/
+
+# Laravel public build directories (Vite or Mix)
+public/build/
+public/hot/
+
+# Laravel storage
+public/storage/
+storage/*.key
+storage/pail/
+
+# Vendor directory for PHP dependencies
+vendor/
+
+# Environment files
+.env
+.env.backup
+.env.production
+
+# Config files and logs (optional, for various development tools)
+.phpactor.json
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+
+# IDE/editor-specific files
+.fleet/
+.idea/
+.vscode/
+.zed/
