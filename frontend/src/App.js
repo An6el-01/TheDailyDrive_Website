@@ -1,3 +1,4 @@
+// App.js
 import React, { useEffect, useState, createContext, useContext } from 'react';
 import { loginUser, logoutUser, registerUser } from './services/authService';
 import api from './api';
@@ -9,28 +10,30 @@ import Logout from './components/Logout';
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
   const [token, setToken] = useState(localStorage.getItem('token') || '');
 
-  // Save token in localStorage and set user state when token changes
+  // Save token and user in localStorage and set state
   useEffect(() => {
-    if (token) {
+    if (token && user) {
       localStorage.setItem('token', token);
-      setUser({ email: 'user@example.com' }); // Replace with actual user info if available
+      localStorage.setItem('user', JSON.stringify(user));
     } else {
       localStorage.removeItem('token');
-      setUser(null);
+      localStorage.removeItem('user');
     }
-  }, [token]);
+  }, [token, user]);
 
   // Login function
   const login = async (userData) => {
     try {
       const response = await loginUser(userData);
       setToken(response.data.token);
-      setUser(response.data.user); // Set user data from response if available
+      setUser(response.data.user); // Set actual user data from backend response
+      alert('Successfully logged in!');
     } catch (error) {
       console.error('Login error:', error);
+      alert('Failed to login. Please check your credentials.');
     }
   };
 
@@ -38,8 +41,10 @@ const AuthProvider = ({ children }) => {
   const register = async (userData) => {
     try {
       await registerUser(userData);
+      alert('Registration successful. You can now log in.');
     } catch (error) {
       console.error('Registration error:', error);
+      alert('Registration failed. Please try again.');
     }
   };
 
@@ -49,8 +54,10 @@ const AuthProvider = ({ children }) => {
       await logoutUser(token);
       setToken('');
       setUser(null);
+      alert('Successfully logged out!');
     } catch (error) {
       console.error('Logout error:', error);
+      alert('Failed to log out. Please try again.');
     }
   };
 

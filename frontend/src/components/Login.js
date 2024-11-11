@@ -3,8 +3,8 @@ import { AuthContext } from '../App';
 
 function Login(){
     const { login } = useContext(AuthContext);
-    const { email, setEmail } = useState('');
-    const { password, setPassword } = useState('');
+    const [ email, setEmail ] = useState('');
+    const [ password, setPassword ] = useState('');
     
     const handleLogin = async (e) => {
         e.preventDefault();

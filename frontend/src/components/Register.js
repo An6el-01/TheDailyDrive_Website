@@ -3,16 +3,25 @@ import { AuthContext } from '../App';
 
 function Register() {
     const {register} = useContext(AuthContext);
-    const {email, setEmail} = useState('');
-    const {password, setPassword} = useState('');
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        await register({ email, password });
+        await register({ name, email, password });
     };
 
     return(
         <form onSubmit={handleRegister}>
+            <div>
+                <label>Name:</label>
+                <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
+            </div>
             <div>
                 <label>Email:</label>
                 <input
