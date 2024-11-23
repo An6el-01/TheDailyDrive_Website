@@ -44,7 +44,7 @@ function AuthBox() {
         <div style={styles.forms}>
           {/* Login Form */}
           <div style={{ ...styles.form, backgroundColor: isDarkMode ? "#2c2c2c" : "#fff" }}>
-            <h2 style={{ ...styles.heading, color: isDarkMode ? "#fff" : "#000" }}>Sign In</h2>
+            <h2 style={{ ...styles.heading, color: isDarkMode ? "#fff" : "#000" }}>Log In</h2>
             <form onSubmit={handleLogin}>
               <input
                 type="email"
@@ -69,7 +69,7 @@ function AuthBox() {
                 }}
               />
               <button type="submit" style={styles.button}>
-                Login
+                Log In
               </button>
             </form>
           </div>
@@ -112,7 +112,7 @@ function AuthBox() {
                 }}
               />
               <button type="submit" style={styles.button}>
-                Register
+                Sign Up
               </button>
             </form>
           </div>
@@ -133,7 +133,7 @@ function AuthBox() {
                 style={styles.panelButton}
                 onClick={() => setIsLogin(false)}
               >
-                Sign In
+                Log In
               </button>
             </div>
           ) : (
