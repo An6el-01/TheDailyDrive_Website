@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
@@ -8,13 +8,19 @@ import Courses from './pages/Courses';
 import Apps from './pages/Apps';
 import Contact from './pages/Contact';
 import Authentication from './pages/Authentication';
-import { AuthProvider } from './AuthContext'; // Import AuthProvider
+import { AuthProvider } from './AuthContext'; // Correctly import and use AuthProvider
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
     <AuthProvider>
       <Router>
-        <NavBar />
+        <NavBar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -24,7 +30,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/auth" element={<Authentication />} />
         </Routes>
-        <Footer />
+        <Footer isDarkMode={isDarkMode} />
       </Router>
     </AuthProvider>
   );

@@ -1,14 +1,10 @@
 import React from 'react';
-import Login from '../components/Login';
-import Register from '../components/Register';
+import AuthBox from '../components/AuthBox';
 
 function Authentication() {
     return(
         <div>
-            <h2>Login</h2>
-            <Login />
-            <h2>Register</h2>
-            <Register />
+            <AuthBox/>
         </div>
     );
 }
