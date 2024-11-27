@@ -20,3 +20,13 @@ export const logoutUser = async (token) => {
         },
     });
 };
+
+// Forgot Password
+export const forgotPassword = async (email) => {
+    return await axios.post(`${API_URL}/forgot-password`, { email });
+};
+
+// Reset Password
+export const resetPassword = async (resetData) => {
+    return await axios.post(`${API_URL}/reset-password`, resetData);
+}; 

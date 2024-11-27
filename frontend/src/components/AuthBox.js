@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 
 function AuthBox() {
@@ -72,6 +73,11 @@ function AuthBox() {
                 Log In
               </button>
             </form>
+            <p style={styles.switchText}>
+              <Link to="/forgot-password" style={{ color: "#007bff"}}>
+                Forot Password?
+              </Link>
+            </p>
           </div>
 
           {/* Register Form */}

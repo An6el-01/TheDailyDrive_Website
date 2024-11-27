@@ -16,14 +16,21 @@ public/hot/
 public/storage/
 storage/*.key
 storage/pail/
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/logs/*
+!storage/.gitignore # Allow the base .gitignore file in storage
 
 # Vendor directory for PHP dependencies
 vendor/
 
 # Environment files
 .env
+.env.local
 .env.backup
 .env.production
+.env.testing
 
 # Config files and logs (optional, for various development tools)
 .phpactor.json
@@ -38,3 +45,29 @@ yarn-error.log
 .idea/
 .vscode/
 .zed/
+*.sublime-project
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary files and compiled assets
+/public/css/*.css
+/public/js/*.js
+/public/mix-manifest.json
+/public/assets/
+bootstrap/cache/*
+!bootstrap/cache/.gitignore # Allow the base .gitignore file in bootstrap/cache
+
+# Composer and Laravel SAIL (optional)
+composer.lock.backup
+docker-compose.override.yml
+
+# Miscellaneous
+*.log
+*.swp
+*.bak
+*.tmp
+*.seed

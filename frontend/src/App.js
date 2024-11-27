@@ -8,6 +8,8 @@ import Courses from './pages/Courses';
 import Apps from './pages/Apps';
 import Contact from './pages/Contact';
 import Authentication from './pages/Authentication';
+import ForgotPassword from './components/ForgotPassword';
+import ResetPassword from './components/ResetPassword';
 import { AuthProvider } from './AuthContext'; // Correctly import and use AuthProvider
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
           <Route path="/apps" element={<Apps />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/auth" element={<Authentication />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} /> 
+          <Route path="/reset-password" element={<ResetPassword />} /> 
         </Routes>
         <Footer isDarkMode={isDarkMode} />
       </Router>
